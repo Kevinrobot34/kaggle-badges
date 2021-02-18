@@ -1,0 +1,122 @@
+<!--index.html-->
+
+<!doctype html>
+<html>
+  <head>
+    <!--Use the title variable to set the title of the page-->
+    <title>Kaggle Badges Head</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <!--Use bootstrap to make the application look nice-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </head>
+
+
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          Kaggle Badges
+        </a>
+      </div>
+    </nav>
+
+
+    <div class="container">
+      <h1 class="mt-4">Kaggle Badges</h1>
+
+      <p>
+        このサイトはKaggleのtierと順位を表示するバッジを生成します。
+      </p>
+
+      <hr>
+
+      <form action="/generate" method="post">
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Username</label>
+          <div class="col-sm-10">
+            <input type="data" name="username" class="form-control" placeholder="Username">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Style</label>
+          <div class="col-sm-10">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary active">
+                <input type="radio" name="style_options" value="plastic" autocomplete="off" checked> plastic
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="style_options" value="flat" autocomplete="off"> flat
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="style_options" value="flat-square" autocomplete="off" checked> flat-square
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="style_options" value="for-the-badge" autocomplete="off"> for-the-badge
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="style_options" value="social" autocomplete="off"> social
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Logo</label>
+          <div class="col-sm-10">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary active">
+                <input type="radio" name="logo_options" value="On" autocomplete="off" checked> On
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="logo_options" value="Off" autocomplete="off"> Off
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"></label>
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Generate!</button>
+          </div>
+        </div>
+      </form>
+
+      <hr>
+
+      <h3 class="mt-4">Preview</h3>
+      <img src="{{.badgeUrl}}">
+
+      <h3 class="mt-4">Codes</h3>
+      <div class="mb-3 input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Markdown</span>
+        </div>
+        <input value="hoge" readonly="" class="form-control">
+        <div class="input-group-append">
+          <button type="button" class="btn btn-secondary">Copy</button>
+        </div>
+      </div>
+      <div class="mb-3 input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">HTML</span>
+        </div>
+        <input value="fuga" readonly="" class="form-control">
+        <div class="input-group-append">
+          <button type="button" class="btn btn-secondary">Copy</button>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
